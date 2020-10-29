@@ -1,0 +1,39 @@
+<div class="page-area">
+  <h2 class="textheader">About Us</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="form-group">
+        <input
+          type="search"
+          class="form-control"
+          id="Search"
+          placeholder="Search Product by Name"
+          ([ngModel])="nameSearch"
+        />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of Products | filter : nameSearch ">
+            <th scope="row">{{product.sno}}</th>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>
+              <span class="badge">{{product.availability}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
